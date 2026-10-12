@@ -54,7 +54,7 @@ const client = new OpenAI({
 });
 
 const response = await client.chat.completions.create({
-  model: "openai/gpt-4o-mini",
+  model: "gpt-4o-mini",
   messages: [
     { role: "system", content: "You are a helpful assistant for software developers." },
     { role: "user", content: "Give me a checklist for launching an AI feature." },
@@ -76,9 +76,9 @@ const messages = [
 ];
 
 const models = [
-  "openai/gpt-4o-mini",
-  "anthropic/claude-3-5-haiku",
-  "google/gemini-1.5-flash",
+  "gpt-4o-mini",
+  "claude-haiku-4-5",
+  "gemini-2.5-flash",
 ];
 
 for (const model of models) {
@@ -104,7 +104,7 @@ client = OpenAI(
 )
 
 completion = client.chat.completions.create(
-    model="anthropic/claude-3-5-haiku",
+    model="claude-haiku-4-5",
     messages=[
         {"role": "system", "content": "You are a technical writing assistant."},
         {"role": "user", "content": "Draft a short API changelog entry."},

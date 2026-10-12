@@ -50,7 +50,7 @@ const client = new OpenAI({
 });
 
 const completion = await client.chat.completions.create({
-  model: "openai/gpt-4o-mini",
+  model: "gpt-4o-mini",
   messages: [
     { role: "system", content: "你是簡潔清楚的技術助理。" },
     { role: "user", content: "用三句話解釋 AI API gateway 的用途。" },
@@ -72,9 +72,9 @@ const messages = [
 ];
 
 const models = [
-  "openai/gpt-4o-mini",
-  "anthropic/claude-3-5-haiku",
-  "google/gemini-1.5-flash",
+  "gpt-4o-mini",
+  "claude-haiku-4-5",
+  "gemini-2.5-flash",
 ];
 
 for (const model of models) {
@@ -100,7 +100,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="anthropic/claude-3-5-haiku",
+    model="claude-haiku-4-5",
     messages=[
         {"role": "system", "content": "你是技術文件寫作助理。"},
         {"role": "user", "content": "幫我寫一段 API 更新說明。"},
@@ -123,7 +123,7 @@ print(response.choices[0].message.content)
 
 ```js
 async function askWithFallback(messages) {
-  const candidates = ["openai/gpt-4o-mini", "google/gemini-1.5-flash"];
+  const candidates = ["gpt-4o-mini", "gemini-2.5-flash"];
 
   for (const model of candidates) {
     try {

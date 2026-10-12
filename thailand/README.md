@@ -54,7 +54,7 @@ const client = new OpenAI({
 });
 
 const completion = await client.chat.completions.create({
-  model: "openai/gpt-4o-mini",
+  model: "gpt-4o-mini",
   messages: [
     { role: "system", content: "You are a concise technical assistant." },
     { role: "user", content: "Explain why an AI API gateway is useful." },
@@ -74,9 +74,9 @@ To compare models, keep the same prompt and change only `model`:
 const prompt = "Write a short support reply for a delayed delivery order.";
 
 const modelIds = [
-  "openai/gpt-4o-mini",
-  "anthropic/claude-3-5-haiku",
-  "google/gemini-1.5-flash",
+  "gpt-4o-mini",
+  "claude-haiku-4-5",
+  "gemini-2.5-flash",
 ];
 
 for (const model of modelIds) {
@@ -106,7 +106,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="google/gemini-1.5-flash",
+    model="gemini-2.5-flash",
     messages=[
         {"role": "system", "content": "You help developers debug backend services."},
         {"role": "user", "content": "List three ways to reduce LLM API latency."},
@@ -129,7 +129,7 @@ A simple fallback pattern can look like this:
 
 ```js
 async function completeWithFallback(messages) {
-  const models = ["openai/gpt-4o-mini", "anthropic/claude-3-5-haiku"];
+  const models = ["gpt-4o-mini", "claude-haiku-4-5"];
 
   for (const model of models) {
     try {

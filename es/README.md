@@ -45,7 +45,7 @@ const client = new OpenAI({
 });
 
 const response = await client.chat.completions.create({
-  model: "openai/gpt-4o-mini",
+  model: "gpt-4o-mini",
   messages: [
     { role: "system", content: "Responde de forma clara y breve." },
     { role: "user", content: "Resume las ventajas de usar un gateway de IA." },
@@ -63,9 +63,9 @@ Puedes mantener el mismo código y cambiar solo el valor de `model`:
 
 ```js
 const models = [
-  "openai/gpt-4o-mini",
-  "anthropic/claude-3-5-haiku",
-  "google/gemini-1.5-flash",
+  "gpt-4o-mini",
+  "claude-haiku-4-5",
+  "gemini-2.5-flash",
 ];
 
 for (const model of models) {
@@ -95,7 +95,7 @@ client = OpenAI(
 )
 
 completion = client.chat.completions.create(
-    model="anthropic/claude-3-5-haiku",
+    model="claude-haiku-4-5",
     messages=[
         {"role": "system", "content": "Eres un asistente técnico para developers."},
         {"role": "user", "content": "Explica qué es un endpoint compatible con OpenAI."},
@@ -121,7 +121,7 @@ const timeout = setTimeout(() => controller.abort(), 30_000);
 
 try {
   const response = await client.chat.completions.create({
-    model: "google/gemini-1.5-flash",
+    model: "gemini-2.5-flash",
     messages: [{ role: "user", content: "Genera 5 títulos para un blog fintech." }],
   }, { signal: controller.signal });
 

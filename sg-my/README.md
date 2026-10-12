@@ -54,7 +54,7 @@ const client = new OpenAI({
 });
 
 const result = await client.chat.completions.create({
-  model: "openai/gpt-4o-mini",
+  model: "gpt-4o-mini",
   messages: [
     { role: "system", content: "You are a practical assistant for software teams." },
     { role: "user", content: "List three AI use cases for an ecommerce operations team." },
@@ -74,9 +74,9 @@ For model evaluation, keep the prompt stable and change only the model ID:
 const testPrompt = "Rewrite this support response to sound clearer and more professional: Sorry, your order is late, we are checking.";
 
 const models = [
-  "openai/gpt-4o-mini",
-  "anthropic/claude-3-5-haiku",
-  "google/gemini-1.5-flash",
+  "gpt-4o-mini",
+  "claude-haiku-4-5",
+  "gemini-2.5-flash",
 ];
 
 for (const model of models) {
@@ -106,7 +106,7 @@ client = OpenAI(
 )
 
 completion = client.chat.completions.create(
-    model="google/gemini-1.5-flash",
+    model="gemini-2.5-flash",
     messages=[
         {"role": "system", "content": "You help product teams write clear release notes."},
         {"role": "user", "content": "Draft a short release note for a new invoice export feature."},
@@ -139,7 +139,7 @@ For critical paths, add fallback logic:
 
 ```js
 async function runWithFallback(messages) {
-  for (const model of ["openai/gpt-4o-mini", "anthropic/claude-3-5-haiku"]) {
+  for (const model of ["gpt-4o-mini", "claude-haiku-4-5"]) {
     try {
       return await runModel({ model, messages, task: "support_reply" });
     } catch (_) {
